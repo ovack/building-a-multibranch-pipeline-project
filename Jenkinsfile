@@ -6,12 +6,13 @@ pipeline {
         }
     }
     environment {
-        CI = 'true' 
+        CI = 'true'
+        HOME = "${WORKSPACE}"
     }
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'npm update && npm install'
             }
         }
         stage('Test') { 
